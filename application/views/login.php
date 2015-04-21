@@ -21,13 +21,13 @@
 				<div class="col-sm-4">
 					<div class="signup-form"><!--sign up form-->
 						<h2>New User Register!</h2>
-						<form action="<?php echo base_url()?>login/isiform">
-							<input type="text" placeholder="Name" required/>
-							<input type="text" placeholder="Address" required/>
-							<input type="date" placeholder="Date of Birth" required/>
-							<input type="text" placeholder="Mobile Phone Number" required/>
-							<input type="text" placeholder="Username" required/>
-							<input type="password" placeholder="Password" required/>
+						<form action="<?php echo base_url()?>login/isiform" method="POST">
+							<input name = "Nama_User" type="text" placeholder="Name" required/>
+							<input name="Alamat" type="text" placeholder="Address" required/>
+							<input name="Tanggal_lahir" type="date" placeholder="Date of Birth" required/>
+							<input name="Nomor_HP" type="text" placeholder="Mobile Phone Number" required/>
+							<input name="username" type="text" placeholder="Username" required/>
+							<input name ="password" type="password" placeholder="Password" required/>
 							<!-- <input type="password" placeholder="Re-type Password" required/> -->
 							
 							<button type="submit" class="btn btn-default">Register!</button>

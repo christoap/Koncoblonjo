@@ -46,7 +46,10 @@ class UserModel extends CI_Model
 	}
 	public function userbaru($data1)
 	{
+
+
 		$this->db->insert('akun',$data1);
+		
 	}
 
 
