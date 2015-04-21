@@ -1,10 +1,11 @@
 <?php
 class UserModel extends CI_Model
 {
-	function UserModel()
+	function __construct()
 	{
-		parent::__construct();
-	
+		//parent::__construct();
+		$this->load->database();
+		
 	}
 	
 	function check($username,$password)
@@ -43,4 +44,10 @@ class UserModel extends CI_Model
 			return "gagal";
 		}
 	}
+	public function userbaru($data1)
+	{
+		$this->db->insert('akun',$data1);
+	}
+
+
 }
