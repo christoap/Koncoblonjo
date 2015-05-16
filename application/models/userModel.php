@@ -14,10 +14,11 @@ class UserModel extends CI_Model
 			$sql = "select * from akun where username= '".$username."' and password= '".$password."' ";
 			$query = $this->db->query($sql);
 			if($query->result()){
-				echo "berhasil query";
+				$masuk=1;
 				return 1;
 			}
 			else{
+				$masuk=0;
 				return false;
 			}
 		}

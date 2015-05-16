@@ -5,8 +5,8 @@
 					<div class="login-form"><!--login form-->
 						<h2>Login to your account</h2>
 						<form action="<?php echo base_url()?>login/masuk" method="post">
-							<input type="text" placeholder="Username" required/>
-							<input type="password" placeholder="Password" required/>
+							<input name= "user" type="text" placeholder="Username" required/>
+							<input name= "pass" type="password" placeholder="Password" required/>
 							<span>
 								<input type="checkbox" class="checkbox"> 
 								Keep me signed in

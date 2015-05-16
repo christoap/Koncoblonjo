@@ -17,19 +17,20 @@ class Login extends CI_Controller
 
 	}
 	function masuk()
-	{
-		$username = $this->input->post('username');
-		$password = $this->input->post('password');
+	{	
+		$username = $this->input->post('user');
+		$password = $this->input->post('pass');
 		$query = $this->userModel->check($username, $password);
 		if ($query)
 		{
 			$data=array('username'=>$username);
 			$this->session->set_userdata($data);
-			redirect('main');
+			//check return value from model
 		}
 		else
 		{
 			$data['checklogin']=1;
+			$this->load->view('header',$data);
 			$this->load->view('login',$data);
 		}
 	}
@@ -41,12 +42,16 @@ class Login extends CI_Controller
     	$nohp  	= $this->input->post('Nomor_HP'); //input nama
   		$username= $this->input->post('username'); //input alamat
   		$password= $this->input->post('password'); //input alamat
-  		$data1 = array (
-  			$nama, $alamat, $dob, $nohp, $username, $password
-  		);
   		
-
-		  $this->userModel->userbaru($data1);
+  		$data1 = array (
+  		'Nama_User'	=> $nama,
+  		'Alamat'	=> $alamat,
+  		'Tanggal_lahir'	=> $dob,
+  		'Nomor_HP'	=> $nohp,
+  		'username'	=> $username,
+  		'password'	=> $password
+  		);
+		  $debug = $this->userModel->userbaru($data1);
 
   		
       redirect ('main/login');

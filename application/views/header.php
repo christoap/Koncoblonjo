@@ -75,11 +75,38 @@
 					<div class="col-sm-8">
 						<div class="shop-menu pull-right">
 							<ul class="nav navbar-nav">
-								<li><a href="#"><i class="fa fa-user"></i> Account</a></li>
-								<li><a href="<?php echo base_url()?>main/uc"><i class="fa fa-star"></i> Wishlist</a></li>
-								<li><a href="<?php echo base_url()?>main/checkout"><i class="fa fa-crosshairs"></i> Checkout</a></li>
-								<li><a href="<?php echo base_url()?>main/cart"><i class="fa fa-shopping-cart"></i> Cart</a></li>
-								<li><a href="<?php echo base_url()?>main/login"><i class="fa fa-lock"></i> Login</a></li>
+								<li>
+									<a href="#"><i class="fa fa-user"></i>
+										<?php 		
+										if ($this->session->userdata('username'))
+										{
+											$username=$this->session->userdata('username');
+										}
+										else 
+											$username='akun';
+											echo $username; 
+										?>
+									</a>
+								</li>
+								
+								<li><a href="<?php echo base_url()?>main/cart"><i class="fa fa-shopping-cart"></i>My Cart</a></li>
+								<li>
+									<a href="<?php echo base_url()?>main/login"><i class="fa fa-shopping-cart"></i>
+										
+										<?php
+										if ($this->session->userdata('username'))
+										{
+											echo "Log Out";
+										}
+										else 
+											echo "Log In"; 
+										?>
+
+									</a>
+
+								</li>
+								
+								
 							</ul>
 						</div>
 					</div>
@@ -102,23 +129,20 @@
 						<div class="mainmenu pull-left">
 							<ul class="nav navbar-nav collapse navbar-collapse">
 								<li><a href="<?php echo base_url()?>" class="active">Home</a></li>
-								<li class="dropdown"><a href="#">Shop<i class="fa fa-angle-down"></i></a>
-                                    <ul role="menu" class="sub-menu">
-                                        <li><a href="shop.html">Products</a></li>
-										<li><a href="product-details.html">Product Details</a></li> 
-										<li><a href="checkout.html">Checkout</a></li> 
-										<li><a href="cart.html">Cart</a></li> 
-										<li><a href="login.html">Login</a></li> 
+								<li class="dropdown"><a href="#">Hot Promo<i class="fa fa-angle-down"></i></a>
                                     </ul>
                                 </li> 
-								<li class="dropdown"><a href="#">Blog<i class="fa fa-angle-down"></i></a>
+								<li class="dropdown"><a href="#">Kategori<i class="fa fa-angle-down"></i></a>
                                     <ul role="menu" class="sub-menu">
-                                        <li><a href="blog.html">Blog List</a></li>
-										<li><a href="blog-single.html">Blog Single</a></li>
+                                        <li><a href="#">Makanan</a></li>
+										<li><a href="#">Minuman</a></li>
+										<li><a href="#">Perawatan Pribadi</a></li>
+										<li><a href="#">Perawatan Kesehatan</a></li>
+										<li><a href="#">Kebutuhan Bayi</a></li>
+										<li><a href="#">Rumah & Dapur</a></li>
+
                                     </ul>
                                 </li> 
-								<li><a href="404.html">404</a></li>
-								<li><a href="contact-us.html">Contact</a></li>
 							</ul>
 						</div>
 					</div>

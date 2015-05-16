@@ -14,7 +14,8 @@ class Main extends CI_Controller {
 
 	public function index()
 	{
-		$this->load->view('header');
+		$data['username']= $this->session->userdata('username');
+		$this->load->view('header',$data);
 		$this->load->view('index');
 		$this->load->view('footer');
 		
@@ -69,6 +70,9 @@ class Main extends CI_Controller {
 
 	function login()
 	{
+		//$this->session->sess_destroy();
+
+
 		$this->load->view('header');
 		$this->load->view('login');
 		$this->load->view('footer');
@@ -79,5 +83,10 @@ class Main extends CI_Controller {
 		$this->load->view('header');
 		$this->load->view('404');
 		$this->load->view('footer');
+	}
+	function logout()
+	{
+		$this->session->sess_destroy();
+      	$this->index();
 	}
 }
